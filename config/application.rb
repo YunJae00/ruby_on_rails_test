@@ -16,6 +16,9 @@ module TestApiApp
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # app/lib 디렉토리 추가
+    config.autoload_paths << Rails.root.join('app/lib')
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

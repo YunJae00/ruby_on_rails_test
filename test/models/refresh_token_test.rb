@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class RefreshTokenTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
