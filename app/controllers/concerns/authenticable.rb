@@ -2,7 +2,7 @@ module Authenticable
   extend ActiveSupport::Concern
 
   included do
-    attr_reader = :current_user
+    attr_reader :current_user
   end
 
   def authenticate_user
