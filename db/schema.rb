@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_03_164113) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_04_085230) do
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "title"
+    t.text "content"
+  end
+
   create_table "refresh_tokens", force: :cascade do |t|
     t.string "token", null: false
     t.integer "user_id", null: false
