@@ -4,7 +4,6 @@ class AuthController < ApplicationController
   before_action :authenticate_user, except: [ :login ]
 
   def login
-    puts "전체 파라미터: #{params.inspect}"
     user = User.find_by(email: login_params[:email])
 
     if user && user.authenticate(login_params[:password])
