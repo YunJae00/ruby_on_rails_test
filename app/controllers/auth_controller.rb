@@ -10,7 +10,7 @@ class AuthController < ApplicationController
       token = JsonWebToken.encode(email: user.email)
       render json: { token: token }, status: 200
     else
-      render json: { error: 'Invalid Credentials' }, status: 401
+      render json: { error: "Invalid Credentials" }, status: 401
     end
   end
 
