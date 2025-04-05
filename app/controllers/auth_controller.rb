@@ -7,8 +7,10 @@ class AuthController < ApplicationController
     user = User.find_by(email: login_params[:email])
 
     if user && user.authenticate(login_params[:password])
-      token = JsonWebToken.encode(user_email: user.email)
-      render json: { token: token, user: user }
+      token = JsonWebToken.encode(email: user.email)
+      render json: { token: token }, status: 200
+    else
+      render json: { error: 'Invalid Credentials' }, status: 401
     end
   end
 

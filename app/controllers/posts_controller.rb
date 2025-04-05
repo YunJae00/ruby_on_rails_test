@@ -9,16 +9,18 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    render json: @post, status: 200, serializer: PostSerializers::PostSerializer
+    @post = Post.includes(:user).find(params[:id])
+    render json: @post, status: 200, serializer: PostSerializers::PostWithUserSerializer
   end
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
+    puts(current_user)
     if @post.save
-      render json: @post
+      render json: @post, status: 201, serializer: PostSerializers::PostSerializer
     else
-      render json: @post.errors
+      render json: @post.errors, status: 400
     end
   end
 
